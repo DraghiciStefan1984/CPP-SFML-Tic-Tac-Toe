@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include "MainMenuState.h"
+#include "GameState.h"
 #include "DEFINITIONS.h"
 
 MainMenuState::MainMenuState(GameDataRef data) : _data(data) {}
@@ -35,7 +36,7 @@ void MainMenuState::HandleInput()
 	while (this->_data->window.pollEvent(event))
 	{
 		if (event.type == Event::Closed) this->_data->window.close();
-		if (this->_data->inputManager.IsSpriteClicked(this->_playButton, Mouse::Left, this->_data->window)) cout << "go to game screen" << endl;
+		if (this->_data->inputManager.IsSpriteClicked(this->_playButton, Mouse::Left, this->_data->window)) this->_data->machine.AddState(StateRef(new GameState(_data)), true);
 	}
 }
 
