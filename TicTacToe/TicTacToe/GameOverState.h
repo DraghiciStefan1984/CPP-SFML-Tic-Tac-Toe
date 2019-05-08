@@ -11,10 +11,8 @@ class GameOverState : public State
 {
 private:
 	GameDataRef _data;
-	Sprite _background;
-	Sprite _playButton;
-	Sprite _playButtonOuter;
-	Sprite _title;
+	Sprite _retryButton;
+	Sprite _homeButton;
 
 public:
 	GameOverState(GameDataRef data);
