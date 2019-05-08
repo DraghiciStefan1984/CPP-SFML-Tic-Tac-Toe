@@ -3,6 +3,7 @@
 #include <iostream>
 #include "GameState.h"
 #include "DEFINITIONS.h"
+#include "PauseState.h"
 
 GameState::GameState(GameDataRef data) : _data(data) {}
 
@@ -25,7 +26,7 @@ void GameState::HandleInput()
 	while (this->_data->window.pollEvent(event))
 	{
 		if (event.type == Event::Closed) this->_data->window.close();
-		if (this->_data->inputManager.IsSpriteClicked(this->_pauseButton, Mouse::Left, this->_data->window)) cout << "pause game" << endl;
+		if (this->_data->inputManager.IsSpriteClicked(this->_pauseButton, Mouse::Left, this->_data->window)) this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
 	}
 }
 
