@@ -13,9 +13,14 @@ private:
 	GameDataRef _data;
 	Sprite _background;
 	Sprite _pauseButton;
+	Sprite _gridSprite;
+	Sprite _gridPieces[3][3];
+	int gridArray[3][3];
 
 	int turn;
 	int gameState;
+	void InitGridPieces();
+	void CheckAndPlacePiece();
 
 public:
 	GameState(GameDataRef data);

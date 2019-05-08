@@ -39,6 +39,6 @@ void GameOverState::Draw(float deltaTime)
 {
 	this->_data->window.clear();
 	this->_data->window.draw(this->_retryButton);
-s	this->_data->window.draw(this->_homeButton);
+	this->_data->window.draw(this->_homeButton);
 	this->_data->window.display();
 }
